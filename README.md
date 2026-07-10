@@ -202,10 +202,6 @@ const decision = await decider.decide('content-123');
 
 ### Android SDK
 
-The exact Android API entry points are provided by the native Android SDK package.
-
-Use this integration flow in your Android app:
-
 ```kotlin
 val visitorDataRepository: UserDimensionRepository = NativeUserDimensionRepository()
 val deviceDataRepository: DeviceDimensionRepository = NativeDeviceDimensionRepository()
