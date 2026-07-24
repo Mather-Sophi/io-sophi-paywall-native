@@ -1,8 +1,10 @@
 /**
  * Type definitions for Sophi Paywall user and device dimensions.
- * 
+ *
  * These types mirror the Sophi library's dimension requirements and provide
  * extensive documentation with practical examples for each field.
+ *
+ * @see https://resources.sophi.io/docs/paywall-guide-for-native-apps
  */
 
 // ============================================================================
