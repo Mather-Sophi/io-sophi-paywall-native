@@ -310,6 +310,8 @@ const userDimensionsRepository = {
 const deviceDimensionsRepository = {
   getAll(): DeviceDimensions {
     return {
+      hourOfDay: new Date().getHours(),
+      os: 'ios',
       viewer: 'app-ios-1.0.0',  // Format: app-{platform}-{version}
     };
   },
@@ -383,8 +385,8 @@ Returns engagement metrics about the current visitor. You are responsible for tr
 | `daysSinceLastVisit` | number | Days since last visit |
 | `visitorType` | string | `'anonymous'` or `'registered'` |
 | `timezone` | string | IANA timezone (e.g. `'America/New_York'`) |
-| `pageReferrer` | object \| null | Referrer info for current page |
-| `sessionReferrer` | object \| null | Referrer info for current session |
+| `pageReferrer` | string \| null | Referrer URL for the current page |
+| `sessionReferrer` | string \| null | Referrer URL captured at session start |
 
 ### `DeviceDimensionRepository`
 
@@ -392,6 +394,8 @@ Returns device/app context. Minimal implementation:
 
 | Field | Type | Description |
 |-------|------|-------------|
+| `hourOfDay` | number | Current hour in 24h format (`0-23`) |
+| `os` | string | Lowercase OS identifier: `'ios'` or `'android'` |
 | `viewer` | string | App identifier in format `app-{platform}-{version}` (e.g. `app-ios-2.1.0`) |
 
 > [!NOTE]

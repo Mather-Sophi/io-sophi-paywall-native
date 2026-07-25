@@ -1,7 +1,8 @@
 package news.publisher.infrastructure.paywall
 
 import android.content.Context
-import android.os.Build
+import news.publisher.BuildConfig
+import java.util.Calendar
 
 /**
  * Implementation of device dimension repository.
@@ -18,27 +19,9 @@ class DeviceDimensionRepositoryImpl(private val context: Context) {
      */
     fun getAll(): DeviceDimensions {
         return DeviceDimensions(
-            deviceType = getDeviceType(),
-            os = "Android ${Build.VERSION.RELEASE}",
-            browser = "NewsPublisher App",
-            isNativeApp = true
+            hourOfDay = Calendar.getInstance().get(Calendar.HOUR_OF_DAY),
+            os = "android",
+            viewer = "news-publisher-android-${BuildConfig.VERSION_NAME}"
         )
-    }
-    
-    /**
-     * Determines the device type based on screen size and form factor.
-     * 
-     * In a production app, you might use more sophisticated detection logic
-     * based on screen dimensions, density, and configuration.
-     */
-    private fun getDeviceType(): String {
-        val configuration = context.resources.configuration
-        val screenLayout = configuration.screenLayout and android.content.res.Configuration.SCREENLAYOUT_SIZE_MASK
-        
-        return when (screenLayout) {
-            android.content.res.Configuration.SCREENLAYOUT_SIZE_LARGE,
-            android.content.res.Configuration.SCREENLAYOUT_SIZE_XLARGE -> "tablet"
-            else -> "mobile"
-        }
     }
 }

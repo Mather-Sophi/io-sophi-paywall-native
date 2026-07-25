@@ -7,7 +7,7 @@ This is a complete Android example app demonstrating integration with the Sophi 
 This example shows how to:
 - Import the Sophi Paywall library from GitHub Packages
 - Implement user and device dimension repositories
-- Detect referrer sources (social media, search engines, campaigns)
+- Capture page/session referrer URLs in user dimensions
 - Make paywall decisions
 - Display paywall UI based on decisions
 - Track analytics data
@@ -78,37 +78,18 @@ Or open the project in Android Studio and run it.
 
 ## Key Features
 
-### Comprehensive Referrer Detection
+### Referrer Handling
 
-The `UserDimensionRepository.kt` includes extensive examples for detecting referrer sources:
-
-**Social Media:**
-- Facebook, Instagram, X/Twitter, LinkedIn, Reddit
-
-**Search Engines:**
-- Google (Search, News, Discover)
-- Bing, Yahoo, DuckDuckGo
-
-**Campaigns:**
-- UTM parameter detection
-- Email newsletter tracking
-
-**Examples:**
-```kotlin
-// User clicks Facebook link → (SOCIAL, FACEBOOK, null)
-// User searches on Google → (SEARCH, GOOGLE, SEARCH)
-// User browses Google News → (SEARCH, GOOGLE, NEWS)
-// User swipes Google Discover → (SEARCH, GOOGLE, DISCOVER)
-// User clicks email link → (CAMPAIGN, NEWSLETTER, null)
-```
+The `UserDimensionRepository.kt` captures raw referrer URLs (`pageReferrer`, `sessionReferrer`).
+The paywall SDK derives medium/source/channel internally from those URLs.
 
 ### Dimension Types Documentation
 
 The `types.kt` file provides comprehensive documentation for all dimension types:
 
 - **UserDimensions**: 27 fields tracking engagement over 1-day, 7-day, and 28-day periods
-- **DeviceDimensions**: Device type, OS, browser, app context
-- **Enum Types**: VisitorType, ReferrerMedium, ReferrerSource, ReferrerChannel
+- **DeviceDimensions**: Hour of day, lowercase OS, and viewer/build identifier
+- **Enum Types**: VisitorType
 
 Each field includes:
 - Clear description
@@ -188,7 +169,7 @@ Before deploying to production:
 - [ ] Add proper error handling and retry logic
 - [ ] Implement subscription/registration flows
 - [ ] Add proper logging for debugging
-- [ ] Test referrer detection with real traffic sources
+- [ ] Validate `pageReferrer`/`sessionReferrer` capture from deep links
 - [ ] Configure ProGuard rules for release builds
 - [ ] Set up proper dependency injection (Hilt/Koin)
 

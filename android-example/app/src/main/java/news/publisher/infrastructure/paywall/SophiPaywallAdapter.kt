@@ -63,7 +63,11 @@ class SophiPaywallAdapter(
         val sophiDecision = paywallDecider.decide(
             contentId = contentId,
             userDimensions = mapUserDimensions(userDimensions),
-            deviceDimensions = mapDeviceDimensions(deviceDimensions),
+            deviceDimensions = io.sophi.paywall.DeviceDimensions(
+                hourOfDay = deviceDimensions.hourOfDay,
+                os = deviceDimensions.os,
+                viewer = deviceDimensions.viewer
+            ),
             assignedGroup = assignedGroup
         )
         
@@ -110,22 +114,12 @@ class SophiPaywallAdapter(
             twentyEightDayTopLevelSections = dimensions.twentyEightDayTopLevelSections,
             twentyEightDayTopLevelSectionsByArticle = dimensions.twentyEightDayTopLevelSectionsByArticle,
             twentyEightDayVisitCount = dimensions.twentyEightDayVisitCount,
+            daysSinceLastVisit = dimensions.daysSinceLastVisit,
             visitorType = dimensions.visitorType.value,
-            referrerMedium = dimensions.referrerMedium.value,
-            referrerSource = dimensions.referrerSource?.value,
-            referrerChannel = dimensions.referrerChannel?.value
+            timezone = dimensions.timezone,
+            pageReferrer = dimensions.pageReferrer,
+            sessionReferrer = dimensions.sessionReferrer
         )
     }
     
-    /**
-     * Maps our domain DeviceDimensions to Sophi library format.
-     */
-    private fun mapDeviceDimensions(dimensions: DeviceDimensions): io.sophi.paywall.DeviceDimensions {
-        return io.sophi.paywall.DeviceDimensions(
-            deviceType = dimensions.deviceType,
-            os = dimensions.os,
-            browser = dimensions.browser,
-            isNativeApp = dimensions.isNativeApp
-        )
-    }
 }
