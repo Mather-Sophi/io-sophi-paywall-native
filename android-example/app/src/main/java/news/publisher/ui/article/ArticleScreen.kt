@@ -117,10 +117,6 @@ private fun ArticleContent(
                 Text("Wall Type: ${wallDecision.wallType}")
                 Text("Content ID: ${wallDecision.contentId}")
                 
-                if (wallDecision.experimentGroup != null) {
-                    Text("Experiment Group: ${wallDecision.experimentGroup}")
-                }
-                
                 Spacer(modifier = Modifier.height(8.dp))
                 
                 Text(

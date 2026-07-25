@@ -13,8 +13,7 @@ interface PaywallDecisionService {
      * Determines whether to show a paywall for the given content.
      * 
      * @param contentId Unique identifier for the content
-     * @param assignedGroup Optional A/B test group assignment (e.g., "variant", "control")
      * @return WallDecision containing the decision and tracking information
      */
-    suspend fun decide(contentId: String, assignedGroup: String? = null): WallDecision
+    suspend fun decide(contentId: String): WallDecision
 }

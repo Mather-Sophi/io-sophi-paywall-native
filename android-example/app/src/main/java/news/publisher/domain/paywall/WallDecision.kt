@@ -12,8 +12,7 @@ data class WallDecision(
     val wallType: WallType,
     val trace: String,
     val context: String,
-    val inputs: String,
-    val experimentGroup: String?
+    val inputs: String
 )
 
 enum class WallType {

@@ -39,10 +39,7 @@ class ArticleViewModel(
             )
             
             // Get paywall decision
-            val decision = paywallService.decide(
-                contentId = article.id,
-                assignedGroup = null // Or "variant"/"control" for A/B testing
-            )
+            val decision = paywallService.decide(contentId = article.id)
             
             _uiState.value = ArticleUiState.Success(article, decision)
         }
