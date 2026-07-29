@@ -169,7 +169,11 @@ val deciders = PaywallDeciderRepository.createNew(userDimRepo, deviceDimRepo)
 val decider = deciders.getOneByHost(host = "test.sophi.io", apiTimeoutInMilliSeconds = 1500)
 
 // 4. Get a decision for each piece of content
-val decision = decider.decide(contentId = article.id)
+val decision = decider.decide(
+    contentId = article.id,
+    contentProperties = null,
+    userProperties = null
+)
 
 // 5. Use the decision
 when (decision.wallType) {
@@ -326,8 +330,13 @@ const repository = PaywallDeciderRepository.createNew(
 // 3. Get a decider for your host
 const decider = await repository.getOneByHost('test.sophi.io', 1500);
 
-// 4. Get a decision
-const decision = await decider.decide('content-123');
+// 4. Get a decision (with optional properties)
+const decision = await decider.decide(
+  'content-123',
+  { category: 'sports' },          // contentProperties (optional)
+  { subscriptionTier: 'premium' }   // userProperties (optional)
+);
+// Or call with just contentId: await decider.decide('content-123');
 ```
 
 See the [React Native example app](react-native-example/) for a complete Expo-based implementation.
