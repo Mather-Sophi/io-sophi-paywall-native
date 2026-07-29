@@ -1,0 +1,29 @@
+{
+    "expo": {
+        "name": "News Publisher",
+        "slug": "news-publisher",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "userInterfaceStyle": "automatic",
+        "newArchEnabled": true,
+        "ios": {
+            "supportsTablet": true,
+            "bundleIdentifier": "news.publisher"
+        },
+        "android": {
+            "adaptiveIcon": {
+                "backgroundColor": "#0066CC"
+            },
+            "package": "news.publisher"
+        },
+        "web": {
+            "output": "static"
+        },
+        "plugins": [
+            "expo-router"
+        ],
+        "experiments": {
+            "typedRoutes": true
+        }
+    }
+}
