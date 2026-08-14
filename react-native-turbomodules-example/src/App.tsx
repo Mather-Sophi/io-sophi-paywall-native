@@ -10,7 +10,7 @@ import {
 import {
   PaywallDeciderRepository,
   type WallDecision,
-} from '@sophi/paywall';
+} from '@mather-sophi/paywall';
 import {
   MockDeviceDimensionRepository,
   MockUserDimensionRepository,

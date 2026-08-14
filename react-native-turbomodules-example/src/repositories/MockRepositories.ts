@@ -4,7 +4,7 @@ import {
   type DeviceDimensions,
   type UserDimensionRepository,
   type UserDimensions,
-} from '@sophi/paywall';
+} from '@mather-sophi/paywall';
 
 const baseUserDimensions: UserDimensions = {
   todayPageViews: 5,

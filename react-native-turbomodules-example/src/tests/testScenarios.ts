@@ -4,7 +4,7 @@ import type {
   UserDimensions,
   WallDecision,
   WallDecisionOutcome,
-} from '@sophi/paywall';
+} from '@mather-sophi/paywall';
 import { ContextCodes } from './codes';
 
 export function runScenarioValidations(
