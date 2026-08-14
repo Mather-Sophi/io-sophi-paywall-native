@@ -236,8 +236,8 @@ The React Native SDK is available in **two packages** depending on your app's ar
 
 | Package | Architecture | Install Command |
 |---------|-------------|-----------------|
-| `@mather-sophi/sophi-react-native-paywall-kit-turbo-modules` | **New Architecture** (TurboModules) — Recommended | `npm install @mather-sophi/sophi-react-native-paywall-kit-turbo-modules@1.1.0 --save` |
-| `@mather-sophi/sophi-react-native-paywall-kit` | **Legacy Architecture** (Bridge) | `npm install @mather-sophi/sophi-react-native-paywall-kit@1.1.0 --save` |
+| `@sophi/paywall` | **New Architecture** (TurboModules) — Recommended | `npm install @sophi/paywall@1.2.2 --save` |
+| `@mather-sophi/sophi-react-native-paywall-kit` | **Legacy Architecture** (Bridge) | `npm install @mather-sophi/sophi-react-native-paywall-kit@1.2.2 --save` |
 
 > [!TIP]
 > If your app uses React Native 0.76+ with the New Architecture enabled (default since RN 0.76), use the **TurboModules** package. For older apps or apps with `newArchEnabled=false`, use the **Legacy** package.
@@ -271,7 +271,7 @@ Both packages expose the same API — only the import path differs:
 
 ```typescript
 // TurboModules (New Architecture)
-import { PaywallDeciderRepository, type UserDimensions, type DeviceDimensions } from '@mather-sophi/sophi-react-native-paywall-kit-turbo-modules';
+import { PaywallDeciderRepository, type UserDimensions, type DeviceDimensions } from '@sophi/paywall';
 
 // OR Legacy Architecture
 // import { PaywallDeciderRepository, type UserDimensions, type DeviceDimensions } from '@mather-sophi/sophi-react-native-paywall-kit';

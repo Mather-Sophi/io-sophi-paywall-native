@@ -10,7 +10,7 @@ import {
 import {
   PaywallDeciderRepository,
   type WallDecision,
-} from '@mather-sophi/sophi-react-native-paywall-kit-turbo-modules';
+} from '@sophi/paywall';
 import {
   MockDeviceDimensionRepository,
   MockUserDimensionRepository,

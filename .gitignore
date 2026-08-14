@@ -1,0 +1,40 @@
+# macOS
+.DS_Store
+
+# Swift Package Manager (root Package.swift)
+.build/
+.swiftpm/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+.metro-health-check*
+/coverage
+
+# CocoaPods
+**/ios/Pods/
+
+# Xcode
+**/ios/build/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xccheckout
+*.moved-aside
+*.hmap
+*.ipa
+*.xcuserstate
+xcuserdata/
+DerivedData/
+**/ios/.xcode.env.local
+
+# React Native
+*.jsbundle
+
+# Android
+*.iml
+.gradle/
+.idea/
+local.properties

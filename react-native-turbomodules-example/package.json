@@ -5,10 +5,11 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "build:ios": "react-native build-ios --mode Debug",
     "start": "react-native start"
   },
   "dependencies": {
-    "@mather-sophi/sophi-react-native-paywall-kit-turbo-modules": "1.1.0",
+    "@sophi/paywall": "1.2.2",
     "react": "19.1.0",
     "react-native": "0.81.1"
   },

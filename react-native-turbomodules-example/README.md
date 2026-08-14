@@ -42,11 +42,18 @@ npm install
 cd ios && pod install && cd ..
 ```
 
+The `ios/` directory is a complete React Native host app. It builds the
+published Turbo Module package through CocoaPods, including the package's
+vendored `Paywall.xcframework`.
+
 ### 4. Run the App
 
 ```bash
 # iOS
 npm run ios
+
+# Build the native iOS target without launching a simulator
+npm run build:ios
 
 # Android
 npm run android

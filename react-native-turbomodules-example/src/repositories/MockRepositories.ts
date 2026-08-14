@@ -4,7 +4,7 @@ import {
   type DeviceDimensions,
   type UserDimensionRepository,
   type UserDimensions,
-} from '@mather-sophi/sophi-react-native-paywall-kit-turbo-modules';
+} from '@sophi/paywall';
 
 const baseUserDimensions: UserDimensions = {
   todayPageViews: 5,

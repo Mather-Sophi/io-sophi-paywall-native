@@ -4,7 +4,7 @@ import type {
   UserDimensions,
   WallDecision,
   WallDecisionOutcome,
-} from '@mather-sophi/sophi-react-native-paywall-kit-turbo-modules';
+} from '@sophi/paywall';
 import { ContextCodes } from './codes';
 
 export function runScenarioValidations(
