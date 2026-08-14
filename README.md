@@ -185,7 +185,7 @@ when (decision.wallType) {
 }
 ```
 
-See the [Android example app](android-example/) for a complete implementation with referrer detection, local storage, and Compose UI.
+See the [Android example app](example-apps/android-example/) for a complete implementation with referrer detection, rolling-window engagement tracking, a login/logout demo, and Compose UI.
 
 ---
 
@@ -336,7 +336,7 @@ const decision = await decider.decide(
 // Or call with just contentId: await decider.decide('content-123');
 ```
 
-See the [React Native example app](react-native-example/) for a complete Expo-based implementation.
+See the [React Native example app](example-apps/react-native-example/) for a complete React Native CLI implementation with an automated scenario-validation test suite, built on `@mather-sophi/paywall`.
 
 ---
 
@@ -379,9 +379,8 @@ This repository includes working example apps for each platform:
 
 | Platform | Location | Description |
 |----------|----------|-------------|
-| Android | [`android-example/`](android-example/) | Complete Kotlin + Compose app with domain-driven architecture, referrer detection, and local storage |
-| React Native (New Architecture) | [`react-native-turbomodules-example/`](react-native-turbomodules-example/) | React Native CLI app using the New Architecture with test suite, on `@mather-sophi/paywall` |
-| React Native (Legacy Architecture) | [`react-native-example/`](react-native-example/) | Expo app demonstrating Legacy Bridge architecture integration, on `@mather-sophi/paywall` |
+| Android | [`example-apps/android-example/`](example-apps/android-example/) | Complete Kotlin + Compose app with domain-driven architecture, referrer detection, rolling-window engagement tracking, and a login/logout demo |
+| React Native | [`example-apps/react-native-example/`](example-apps/react-native-example/) | React Native CLI app on `@mather-sophi/paywall` with an automated scenario-validation test suite — works unchanged on New Architecture or Legacy Bridge apps |
 
 Each example shows:
 - How to implement `UserDimensionRepository` and `DeviceDimensionRepository`

@@ -1,0 +1,50 @@
+name: React Native Example
+
+on:
+  pull_request:
+    paths:
+      - "example-apps/react-native-example/**"
+      - ".github/workflows/react-native-example.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "example-apps/react-native-example/**"
+      - ".github/workflows/react-native-example.yml"
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: example-apps/react-native-example
+    env:
+      RCT_NEW_ARCH_ENABLED: "1"
+      RCT_USE_RN_DEP: "1"
+      RCT_USE_PREBUILT_RNCORE: "1"
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com
+          cache: npm
+          cache-dependency-path: example-apps/react-native-example/package.json
+
+      - name: Install JavaScript dependencies
+        run: npm install
+
+      - name: Install CocoaPods dependencies
+        run: pod install --project-directory=ios
+
+      - name: Build iOS simulator app
+        run: npm run build:ios -- --extra-params "-sdk iphonesimulator CODE_SIGNING_ALLOWED=NO"
