@@ -1,8 +1,8 @@
 # Sophi Paywall SDK — Native Integration
 
-[![NPM](https://img.shields.io/badge/npm-v2.0.0-blue)]()
-[![Maven](https://img.shields.io/badge/maven-v2.0.0-blue)]()
-[![Swift Package](https://img.shields.io/badge/swift-v2.0.0-orange)]()
+[![NPM](https://img.shields.io/badge/npm-v2.1.0-blue)]()
+[![Maven](https://img.shields.io/badge/maven-v2.1.0-blue)]()
+[![Swift Package](https://img.shields.io/badge/swift-v2.1.0-orange)]()
 
 The Sophi Paywall SDK enables on-device paywall decisions in your native mobile app. It evaluates visitor engagement, device context, and content signals locally—delivering low-latency wall decisions without round-trip API calls for every page view.
 
@@ -22,7 +22,7 @@ This repository contains:
 > Before go-live, contact Sophi to provision and configure your production host, then replace `test.sophi.io` in your initialization code.
 
 > [!WARNING]
-> **v2.0.0 is a breaking change for React Native only.** The separate `@sophi/paywall` and `@mather-sophi/sophi-react-native-paywall-kit` packages are merged into a single package, `@mather-sophi/paywall`, that supports both architectures. Android and iOS package names and APIs are unchanged. See [Upgrading from v1.x](#upgrading-from-v1x).
+> **v2.1.0 is a breaking change for React Native only.** The separate `@sophi/paywall` and `@mather-sophi/sophi-react-native-paywall-kit` packages are merged into a single package, `@mather-sophi/paywall`, that supports both architectures. Android and iOS package names and APIs are unchanged. See [Upgrading from v1.x](#upgrading-from-v1x).
 
 ---
 
@@ -153,7 +153,7 @@ repositories {
 
 ```kotlin
 dependencies {
-    implementation("io.sophi.android:paywall-kit:2.0.0")
+    implementation("io.sophi.android:paywall-kit:2.1.0")
 }
 ```
 
@@ -195,7 +195,7 @@ See the [Android example app](example-apps/android-example/) for a complete impl
 
 1. In Xcode: **File → Add Package Dependencies...**
 2. Enter URL: `https://github.com/Mather-Sophi/io-sophi-paywall-native`
-3. Select version `2.0.0` (or "Up to Next Major")
+3. Select version `2.1.0` (or "Up to Next Major")
 4. Add the `PaywallKit` product to your target
 
 #### Quick Start
@@ -240,7 +240,7 @@ The React Native SDK is a single package that supports both the **New Architectu
 
 | Package | Install Command |
 |---------|-----------------|
-| `@mather-sophi/paywall` | `npm install @mather-sophi/paywall@2.0.0 --save` |
+| `@mather-sophi/paywall` | `npm install @mather-sophi/paywall@2.1.0 --save` |
 
 > [!NOTE]
 > Upgrading from v1.x, where TurboModules and Legacy were separate packages? See [Upgrading from v1.x](#upgrading-from-v1x).
@@ -342,14 +342,14 @@ See the [React Native example app](example-apps/react-native-example/) for a com
 
 ## Upgrading from v1.x
 
-**v2.0.0 only changes React Native package names.** Android and iOS are unaffected beyond the version bump — no API or code changes.
+**v2.1.0 only changes React Native package names.** Android and iOS are unaffected beyond the version bump — no API or code changes.
 
-| Platform | v1.x | v2.0.0 |
+| Platform | v1.x | v2.1.0 |
 |----------|------|--------|
-| Android (Gradle) | `io.sophi.android:paywall-kit:1.2.2` | `io.sophi.android:paywall-kit:2.0.0` — version bump only |
-| iOS (SPM) | Package version `1.2.2` | Package version `2.0.0` — version bump only |
-| React Native, New Architecture | `@sophi/paywall@1.2.2` | `@mather-sophi/paywall@2.0.0` |
-| React Native, Legacy Architecture | `@mather-sophi/sophi-react-native-paywall-kit@1.2.2` | `@mather-sophi/paywall@2.0.0` |
+| Android (Gradle) | `io.sophi.android:paywall-kit:1.2.2` | `io.sophi.android:paywall-kit:2.1.0` — version bump only |
+| iOS (SPM) | Package version `1.2.2` | Package version `2.1.0` — version bump only |
+| React Native, New Architecture | `@sophi/paywall@1.2.2` | `@mather-sophi/paywall@2.1.0` |
+| React Native, Legacy Architecture | `@mather-sophi/sophi-react-native-paywall-kit@1.2.2` | `@mather-sophi/paywall@2.1.0` |
 
 ### React Native migration steps
 
@@ -361,7 +361,7 @@ See the [React Native example app](example-apps/react-native-example/) for a com
    ```
 2. Install the new package:
    ```bash
-   npm install @mather-sophi/paywall@2.0.0 --save
+   npm install @mather-sophi/paywall@2.1.0 --save
    ```
 3. Update every import to the new module specifier, `@mather-sophi/paywall`. The exported API (`PaywallDeciderRepository`, `UserDimensions`, `DeviceDimensions`, `WallDecision`, etc.) is unchanged.
 4. **iOS** — reinstall CocoaPods after swapping the package: `cd ios && pod install`.
@@ -369,7 +369,7 @@ See the [React Native example app](example-apps/react-native-example/) for a com
 6. Drop any logic that chose a package based on `newArchEnabled` — `@mather-sophi/paywall` detects the architecture at runtime.
 
 > [!NOTE]
-> `@sophi/paywall` and `@mather-sophi/sophi-react-native-paywall-kit` are deprecated as of v2.0.0 (see the npm deprecation notice on each) and will not receive further updates. Use `@mather-sophi/paywall` for all new and existing integrations.
+> `@sophi/paywall` and `@mather-sophi/sophi-react-native-paywall-kit` are deprecated as of v2.1.0 (see the npm deprecation notice on each) and will not receive further updates. Use `@mather-sophi/paywall` for all new and existing integrations.
 
 ---
 
@@ -454,7 +454,7 @@ Returns device/app context. Minimal implementation:
 
 - Verify `gpr.user` and `gpr.key` in `~/.gradle/gradle.properties`
 - Verify the GitHub Packages repository URL is `https://maven.pkg.github.com/Mather-Sophi/io-sophi-paywall-native`
-- Verify the dependency is `io.sophi.android:paywall-kit:2.0.0`
+- Verify the dependency is `io.sophi.android:paywall-kit:2.1.0`
 
 ### iOS Swift Package resolution fails
 
