@@ -1,0 +1,31 @@
+{
+  "name": "sophi-paywall-react-native-example",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "build:ios": "react-native build-ios --mode Debug",
+    "start": "react-native start"
+  },
+  "dependencies": {
+    "@mather-sophi/paywall": "2.1.0-rc.2",
+    "react": "19.2.0",
+    "react-native": "0.83.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
+    "@babel/runtime": "^7.25.0",
+    "@react-native-community/cli": "20.2.0",
+    "@react-native-community/cli-platform-android": "20.2.0",
+    "@react-native-community/cli-platform-ios": "20.2.0",
+    "@react-native/babel-preset": "0.83.10",
+    "@react-native/metro-config": "0.83.10",
+    "@react-native/typescript-config": "0.83.10",
+    "@types/react": "^19.2.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
